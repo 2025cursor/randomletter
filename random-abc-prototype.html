@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANDOM ABC - 随机生成器工具集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f7fa;
+            transition: background 0.3s;
+        }
+
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dark-mode .navbar {
+            background: #2d2d2d;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4169E1;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .dark-mode .nav-links a {
+            color: #ccc;
+        }
+
+        .nav-links a:hover {
+            color: #4169E1;
+        }
+
+        .tools-dropdown {
+            position: relative;
+        }
+
+        .tools-btn {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-weight: 500;
+        }
+
+        .dark-mode .tools-btn {
+            color: #ccc;
+        }
+
+        .tools-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            display: none;
+            z-index: 100;
+            margin-top: 0.5rem;
+        }
+
+        .dark-mode .tools-menu {
+            background: #2d2d2d;
+        }
+
+        .tools-menu.show {
+            display: block;
+        }
+
+        .tools-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .dark-mode .tools-menu a {
+            color: #ddd;
+        }
+
+        .tools-menu a:hover {
+            background: #f5f7fa;
+        }
+
+        .dark-mode .tools-menu a:hover {
+            background: #404040;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .dark-mode .page-title {
+            color: #fff;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .dark-mode .page-subtitle {
+            color: #a0aec0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .dark-mode .card {
+            background: #2d2d2d;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .dark-mode .form-label {
+            color: #e2e8f0;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .dark-mode .form-input {
+            background: #1a1a1a;
+            border-color: #404040;
+            color: #fff;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4169E1;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .checkbox-label input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #4169E1;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 1rem;
+            background: #4169E1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            background: #365abd;
+        }
+
+        .result-box {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4169E1;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .dark-mode .result-box {
+            background: #1a1a1a;
+            border-color: #404040;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn-secondary {
+            padding: 0.75rem;
+            background: white;
+            color: #4a5568;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dark-mode .btn-secondary {
+            background: #1a1a1a;
+            border-color: #404040;
+            color: #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            border-color: #4169E1;
+            color: #4169E1;
+        }
+
+        .password-display {
+            font-family: 'Courier New', monospace;
+            font-size: 1.8rem;
+            word-break: break-all;
+        }
+
+        .strength-meter {
+            margin-top: 1rem;
+        }
+
+        .strength-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .strength-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .strength-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dark-mode .strength-bar {
+            background: #404040;
+        }
+
+        .strength-fill {
+            height: 100%;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+
+        .strength-weak {
+            width: 33%;
+            background: #f56565;
+        }
+
+        .strength-medium {
+            width: 66%;
+            background: #ed8936;
+        }
+
+        .strength-strong {
+            width: 100%;
+            background: #48bb78;
+        }
+
+        .color-preview {
+            border-radius: 12px;
+            min-height: 350px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .color-code {
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .copy-icon {
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .copy-icon:hover {
+            opacity: 1;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .checkbox-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .result-box {
+                font-size: 2rem;
+                padding: 2rem;
+            }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #48bb78;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">T</span>
+            <span>RANDOM ABC</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" onclick="showPage('home')">Home</a>
+            <div class="tools-dropdown">
+                <button class="tools-btn" onclick="toggleToolsMenu()">
+                    Tools ▼
+                </button>
+                <div class="tools-menu" id="toolsMenu">
+                    <a href="#" onclick="showPage('letter')">Letter Generator</a>
+                    <a href="#" onclick="showPage('password')">Password Generator</a>
+                    <a href="#" onclick="showPage('color')">Color Generator</a>
+                    <a href="#">Number Generator</a>
+                    <a href="#">Date & Time Generator</a>
+                    <a href="#">Boolean & Choice</a>
+                    <a href="#">Random Picker</a>
+                </div>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="themeIcon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Letter Generator Page -->
+        <div id="letter" class="page active">
+            <h1 class="page-title">Random Letter Generator</h1>
+            <p class="page-subtitle">Quickly generate random letter sequences with customizable length and case options.</p>
+            
+            <div class="card">
+                <div class="form-group">
+                    <label class="form-label">Number of Letters:</label>
+                    <input type="number" class="form-input" id="letterCount" value="1" min="1" max="100">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Separator:</label>
+                    <select class="form-input" id="separator">
+                        <option value="">None</option>
+                        <option value=", ">Comma</option>
+                        <option value=" - ">Dash</option>
+                        <option value=" ">Space</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Language:</label>
+                    <select class="form-input" id="language">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Letter Type:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="uppercase" checked>
+                            Uppercase
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="lowercase" checked>
+                            Lowercase
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="symbols">
+                            Symbols
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="generateLetters()">Generate Letters</button>
+            </div>
+
+            <div class="result-box" id="letterResult">A</div>
+
+            <div class="button-group">
+                <button class="btn-secondary" onclick="copyToClipboard('letterResult')">Copy</button>
+                <button class="btn-secondary" onclick="clearResult('letterResult')">Clear</button>
+            </div>
+        </div>
+
+        <!-- Password Generator Page -->
+        <div id="password" class="page">
+            <h1 class="page-title">Strong Password Generator</h1>
+            <p class="page-subtitle">Create secure, unbreakable passwords with customizable character types.</p>
+            
+            <div class="card">
+                <div class="result-box password-display" id="passwordResult">;v4#7:Cx3&lt;jaxe|q</div>
+
+                <div class="strength-meter">
+                    <div class="strength-label">
+                        <span>Strength:</span>
+                        <span class="strength-text" style="color: #48bb78;" id="strengthText">Very Strong</span>
+                    </div>
+                    <div class="strength-bar">
+                        <div class="strength-fill strength-strong" id="strengthFill"></div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 2rem;">
+                    <label class="form-label">Password Length:</label>
+                    <input type="number" class="form-input" id="passwordLength" value="16" min="4" max="128">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Character Types:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="pwUppercase" checked>
+                            Uppercase
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="pwLowercase" checked>
+                            Lowercase
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="pwNumbers" checked>
+                            Numbers
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="pwSymbols" checked>
+                            Symbols
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Options:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="excludeAmbiguous">
+                            Exclude Ambiguous
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="noRepeats">
+                            No Repeats
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="generatePassword()">Generate</button>
+                <button class="btn-secondary" onclick="copyToClipboard('passwordResult')" style="margin-top: 1rem; width: 100%;">Copy</button>
+            </div>
+        </div>
+
+        <!-- Color Generator Page -->
+        <div id="color" class="page">
+            <h1 class="page-title">Random Color Generator</h1>
+            <p class="page-subtitle">Instantly generate random colors and harmonious palettes for your projects.</p>
+            
+            <div class="grid-layout">
+                <div class="card">
+                    <div class="form-group">
+                        <label class="form-label">Number of Colors:</label>
+                        <input type="number" class="form-input" id="colorCount" value="1" min="1" max="10">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Color Format:</label>
+                        <select class="form-input" id="colorFormat">
+                            <option value="hex">HEX</option>
+                            <option value="rgb">RGB</option>
+                            <option value="hsl">HSL</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-primary" onclick="generateColor()">Generate Colors</button>
+                </div>
+
+                <div class="color-preview" id="colorPreview" style="background: #f3338b;">
+                    <div class="color-code">
+                        <span id="colorCode">#f3338b</span>
+                        <span class="copy-icon" onclick="copyToClipboard('colorCode')">📋</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Copied to clipboard! ✓</div>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById('toolsMenu').classList.remove('show');
+        }
+
+        // Tools Menu Toggle
+        function toggleToolsMenu() {
+            document.getElementById('toolsMenu').classList.toggle('show');
+        }
+
+        // Close tools menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const toolsDropdown = document.querySelector('.tools-dropdown');
+            if (!toolsDropdown.contains(event.target)) {
+                document.getElementById('toolsMenu').classList.remove('show');
+            }
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const themeIcon = document.getElementById('themeIcon');
+            themeIcon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        }
+
+        // Letter Generator
+        function generateLetters() {
+            const count = parseInt(document.getElementById('letterCount').value);
+            const separator = document.getElementById('separator').value;
+            const uppercase = document.getElementById('uppercase').checked;
+            const lowercase = document.getElementById('lowercase').checked;
+            const symbols = document.getElementById('symbols').checked;
+
+            let chars = '';
+            if (uppercase) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (lowercase) chars += 'abcdefghijklmnopqrstuvwxyz';
+            if (symbols) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+            if (chars.length === 0) {
+                alert('Please select at least one letter type!');
+                return;
+            }
+
+            const letters = [];
+            for (let i = 0; i < count; i++) {
+                letters.push(chars[Math.floor(Math.random() * chars.length)]);
+            }
+
+            document.getElementById('letterResult').textContent = letters.join(separator);
+        }
+
+        // Password Generator
+        function generatePassword() {
+            const length = parseInt(document.getElementById('passwordLength').value);
+            const uppercase = document.getElementById('pwUppercase').checked;
+            const lowercase = document.getElementById('pwLowercase').checked;
+            const numbers = document.getElementById('pwNumbers').checked;
+            const symbols = document.getElementById('pwSymbols').checked;
+            const excludeAmbiguous = document.getElementById('excludeAmbiguous').checked;
+            const noRepeats = document.getElementById('noRepeats').checked;
+
+            let chars = '';
+            if (uppercase) chars += excludeAmbiguous ? 'ABCDEFGHJKLMNPQRSTUVWXYZ' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (lowercase) chars += excludeAmbiguous ? 'abcdefghjkmnpqrstuvwxyz' : 'abcdefghijklmnopqrstuvwxyz';
+            if (numbers) chars += excludeAmbiguous ? '23456789' : '0123456789';
+            if (symbols) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+            if (chars.length === 0) {
+                alert('Please select at least one character type!');
+                return;
+            }
+
+            let password = '';
+            const usedChars = new Set();
+
+            for (let i = 0; i < length; i++) {
+                let char;
+                do {
+                    char = chars[Math.floor(Math.random() * chars.length)];
+                } while (noRepeats && usedChars.has(char) && usedChars.size < chars.length);
+                
+                password += char;
+                if (noRepeats) usedChars.add(char);
+            }
+
+            document.getElementById('passwordResult').textContent = password;
+            updatePasswordStrength(password);
+        }
+
+        function updatePasswordStrength(password) {
+            const length = password.length;
+            const hasUpper = /[A-Z]/.test(password);
+            const hasLower = /[a-z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+            const hasSymbol = /[^A-Za-z0-9]/.test(password);
+
+            let strength = 0;
+            if (length >= 8) strength++;
+            if (length >= 12) strength++;
+            if (hasUpper) strength++;
+            if (hasLower) strength++;
+            if (hasNumber) strength++;
+            if (hasSymbol) strength++;
+
+            const strengthText = document.getElementById('strengthText');
+            const strengthFill = document.getElementById('strengthFill');
+
+            if (strength <= 2) {
+                strengthText.textContent = 'Weak';
+                strengthText.style.color = '#f56565';
+                strengthFill.className = 'strength-fill strength-weak';
+            } else if (strength <= 4) {
+                strengthText.textContent = 'Medium';
+                strengthText.style.color = '#ed8936';
+                strengthFill.className = 'strength-fill strength-medium';
+            } else {
+                strengthText.textContent = 'Very Strong';
+                strengthText.style.color = '#48bb78';
+                strengthFill.className = 'strength-fill strength-strong';
+            }
+        }
+
+        // Color Generator
+        function generateColor() {
+            const format = document.getElementById('colorFormat').value;
+            
+            let color, displayColor;
+            if (format === 'hex') {
+                color = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+                displayColor = color;
+            } else if (format === 'rgb') {
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                color = `rgb(${r}, ${g}, ${b})`;
+                displayColor = color;
+            } else if (format === 'hsl') {
+                const h = Math.floor(Math.random() * 360);
+                const s = Math.floor(Math.random() * 100);
+                const l = Math.floor(Math.random() * 100);
+                color = `hsl(${h}, ${s}%, ${l}%)`;
+                displayColor = color;
+            }
+
+            document.getElementById('colorPreview').style.background = color;
+            document.getElementById('colorCode').textContent = displayColor;
+        }
+
+        // Copy to Clipboard
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            });
+        }
+
+        // Clear Result
+        function clearResult(elementId) {
+            document.getElementById(elementId).textContent = '';
+        }
+
+        // Show Toast Notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Initialize
+        updatePasswordStrength(document.getElementById('passwordResult').textContent);
+    </script>
+</body>
+</html>
