@@ -1,5 +1,15 @@
 {
+  "framework": "nextjs",
   "buildCommand": "npm run build",
-  "outputDirectory": "out",
-  "trailingSlash": true
+  "functions": {
+    "app/sitemap.ts": {
+      "maxDuration": 10
+    },
+    "app/robots.ts": {
+      "maxDuration": 10
+    },
+    "app/manifest.ts": {
+      "maxDuration": 10
+    }
+  }
 }

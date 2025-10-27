@@ -1,0 +1,12 @@
+Contact: mailto:security@randomletter.vercel.app
+Expires: 2025-12-31T23:59:59.000Z
+Acknowledgments: https://randomletter.vercel.app/security-thanks
+Preferred-Languages: en
+Canonical: https://randomletter.vercel.app/.well-known/security.txt
+Policy: https://randomletter.vercel.app/security-policy
+
+# Security Information
+# This is a utility website providing free random generator tools
+# No user data is collected or stored
+# All operations are performed client-side
+# No authentication or sensitive operations

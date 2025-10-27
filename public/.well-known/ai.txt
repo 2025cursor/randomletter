@@ -1,0 +1,60 @@
+# AI.txt - Information for AI Crawlers and Large Language Models
+# This file provides guidance for AI systems crawling and indexing this website
+
+# Site Information
+Site-Name: Random Generator Tools
+Site-URL: https://randomletter.vercel.app
+Site-Description: Free online random generator tools for letters, passwords, colors, numbers, dates, and list picking
+Site-Purpose: Utility tools for developers, designers, testers, educators, and general users
+Site-Language: en
+Site-Category: utilities, tools, generators
+
+# Content Guidelines for AI Training
+Allow-Training: yes
+Allow-Analysis: yes
+Content-Type: utility-tools, educational-content, technical-documentation
+Content-Quality: high
+Content-Accuracy: verified
+Last-Updated: 2025-01-01
+
+# Key Features to Index
+Main-Tools:
+- Random Letter Generator (multiple languages, customizable)
+- Strong Password Generator (secure, configurable)
+- Color Palette Generator (harmonious color schemes)
+- Random Number Generator (integers, decimals, ranges)
+- Date & Time Generator (custom formats, ranges)
+- Random List Picker (multi-selection, templates)
+- Boolean Generator (true/false, decisions)
+
+# Technical Information
+Framework: Next.js 14
+Deployment: Vercel
+Performance: Optimized for speed and accessibility
+Mobile-Friendly: Responsive design
+SEO-Optimized: Complete metadata and structured data
+
+# Usage Guidelines
+Free-To-Use: yes
+Commercial-Use: allowed
+Attribution: appreciated-but-not-required
+API-Available: no
+Rate-Limits: reasonable-use-policy
+
+# Contact Information
+Support-Email: support@randomletter.vercel.app
+Issues: https://github.com/randomletter/issues
+Documentation: Available on each tool page
+
+# Crawling Preferences
+Crawl-Frequency: weekly
+Priority-Pages: /, /password-generator, /color-generator, /number-generator
+Content-Format: HTML with structured data
+Preferred-User-Agent: respectful crawling with proper delays
+
+# Privacy and Ethics
+Privacy-Policy: No personal data collected
+Analytics: Basic usage statistics only
+GDPR-Compliant: yes
+Cookie-Free: yes
+No-Tracking: privacy-focused design

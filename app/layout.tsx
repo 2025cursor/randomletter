@@ -41,12 +41,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+
   return (
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://randomletter.vercel.app/" />
+        <link rel="canonical" href={`${baseUrl}/`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -55,18 +59,35 @@ export default function RootLayout({
               "@type": "WebApplication",
               "name": "Random Generator Tools",
               "description": "Free online random generator tools for letters, passwords, colors, numbers and more",
-              "url": "https://randomletter.vercel.app",
+              "url": baseUrl,
               "applicationCategory": "UtilityApplication",
               "operatingSystem": "Any",
+              "browserRequirements": "Requires JavaScript",
+              "permissions": "none",
               "offers": {
                 "@type": "Offer",
                 "price": "0",
-                "priceCurrency": "USD"
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
               },
               "provider": {
                 "@type": "Organization",
-                "name": "Random Generator Tools"
-              }
+                "name": "Random Generator Tools",
+                "url": baseUrl
+              },
+              "featureList": [
+                "Random Letter Generator",
+                "Password Generator",
+                "Color Palette Generator",
+                "Random Number Generator",
+                "Date & Time Generator",
+                "Random List Picker",
+                "Boolean Generator"
+              ],
+              "keywords": "random generator, utilities, tools, developers, designers",
+              "mainEntityOfPage": baseUrl,
+              "dateModified": "2025-01-01",
+              "inLanguage": "en-US"
             })
           }}
         />
