@@ -1,15 +1,4 @@
 {
   "framework": "nextjs",
-  "buildCommand": "npm run build",
-  "functions": {
-    "app/sitemap.ts": {
-      "maxDuration": 10
-    },
-    "app/robots.ts": {
-      "maxDuration": 10
-    },
-    "app/manifest.ts": {
-      "maxDuration": 10
-    }
-  }
+  "buildCommand": "npm run build"
 }
