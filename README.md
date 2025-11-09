@@ -1,6 +1,6 @@
 # Random ABC Generator
 
-A random letter generator built with Next.js and optimized for Vercel deployment.
+A random letter generator built with Next.js and optimized for Vercel deployment.1
 
 ## Features
 
