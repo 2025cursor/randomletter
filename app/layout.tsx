@@ -48,6 +48,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
+        <meta name="google-adsense-account" content="ca-pub-5941416682676133" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4KGJCWEWH5"></script>
         <script dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || [];
