@@ -97,48 +97,75 @@ export default function BooleanGenerator() {
             </div>
           </div>
 
-          {/* Tool Introduction */}
+          {/* Content Section */}
           <div className="info-section">
-            <h2 className="info-title">Tool Introduction</h2>
+            <h2 className="info-title">When You Just Need a Yes or No</h2>
             <p className="info-text">
-              The Boolean & Choice Generator provides instant random true/false values for quick decision making.
-              Perfect when you need a simple yes/no answer or want to make a binary choice without bias.
-              Each generation has exactly 50% probability for true or false.
+              Some decisions don't need lengthy pros and cons lists. Should you take the umbrella? Go to the gym today? Reply to that email now or later? These tiny choices eat up mental energy, and honestly, the outcome usually doesn't matter that much either way.
+            </p>
+            <p className="info-text">
+              That's where this comes in. True means yes, do it, go ahead. False means no, skip it, wait. It's basically a coin flip without needing to find a coin - or worry about it rolling under the couch.
             </p>
           </div>
 
-          {/* Use Cases */}
           <div className="info-section">
-            <h2 className="info-title">Use Cases</h2>
+            <h2 className="info-title">The Math Behind It</h2>
+            <p className="info-text">
+              Every click gives you exactly 50/50 odds. We generate a random decimal between 0 and 1, then check if it's above or below 0.5. That's it. No algorithms trying to "balance" results over time, no memory of previous outcomes. Each generation is completely independent.
+            </p>
+            <p className="info-text">
+              This is the same logic programmers use in code when they need random boolean values. If you're a developer, you've probably written something like <code>Math.random() {"<"} 0.5</code> a hundred times. This tool just puts a button on it.
+            </p>
+          </div>
+
+          <div className="info-section">
+            <h2 className="info-title">When This Actually Helps</h2>
             <ul className="info-list">
-              <li>Quick decision making (should I do this?)</li>
-              <li>Coin flip alternative</li>
-              <li>Boolean values for programming and testing</li>
-              <li>Breaking ties in simple choices</li>
-              <li>Random yes/no responses</li>
-              <li>Game mechanics and random events</li>
-              <li>A/B testing decisions</li>
+              <li><strong>Decision fatigue:</strong> After a long day of making choices, let the generator handle the trivial ones</li>
+              <li><strong>Settling arguments:</strong> Two people want different things? Let true/false be the tiebreaker everyone agreed to in advance</li>
+              <li><strong>Breaking habits:</strong> Trying to be more spontaneous? Use random results to shake up your routine</li>
+              <li><strong>Testing software:</strong> Developers use boolean generators to simulate random conditions in their code</li>
+              <li><strong>Game night:</strong> Decide who goes first, which team gets the ball, or any other binary choice</li>
+              <li><strong>Creative writing:</strong> Let randomness decide a character's fate or plot direction when you're stuck</li>
             </ul>
           </div>
 
-          {/* FAQ */}
           <div className="info-section">
-            <h2 className="info-title">Frequently Asked Questions</h2>
+            <h2 className="info-title">The Psychology of Letting Go</h2>
+            <p className="info-text">
+              There's something freeing about outsourcing a decision to pure chance. Research on decision-making shows that people often feel relief after a choice is made - even if they didn't make it themselves. The stress isn't usually about picking the "wrong" option; it's about the act of deciding.
+            </p>
+            <p className="info-text">
+              Of course, don't use this for anything serious. Career moves, relationship decisions, financial choices - those deserve actual thought. But for "should I have pizza or tacos?" level decisions, randomness works fine.
+            </p>
+          </div>
+
+          <div className="info-section">
+            <h2 className="info-title">Common Questions</h2>
 
             <div className="faq-item">
-              <h3 className="faq-question">Is this truly 50/50?</h3>
-              <p className="faq-answer">
-                Yes! Each generation uses JavaScript's Math.random() with a 0.5 threshold, ensuring
-                exactly equal probability for true and false results.
-              </p>
+              <p className="faq-question">I got "true" five times in a row. Is it broken?</p>
+              <p className="faq-answer">Nope, that's just how randomness works. With 50/50 odds, getting five of the same result has about a 3% chance of happening. Unlikely, but not rare. Keep clicking and you'll see it balance out over many tries - that's the law of large numbers in action.</p>
             </div>
 
             <div className="faq-item">
-              <h3 className="faq-question">Can I use this instead of flipping a coin?</h3>
-              <p className="faq-answer">
-                Absolutely! This generator provides the same fairness as a coin flip but is more
-                convenient and always available when you need a quick binary decision.
-              </p>
+              <p className="faq-question">Why "true" and "false" instead of "yes" and "no"?</p>
+              <p className="faq-answer">Boolean is the programming term for true/false values. We kept the technical naming because developers often need these values for testing. But mentally, you can absolutely read true as "yes" and false as "no."</p>
+            </div>
+
+            <div className="faq-item">
+              <p className="faq-question">Can I change the probability?</p>
+              <p className="faq-answer">Not in this tool - it's intentionally simple. If you need weighted randomness (like 70/30 odds), check out our Random Number Generator and set your own thresholds.</p>
+            </div>
+
+            <div className="faq-item">
+              <p className="faq-question">Is there any way to predict the next result?</p>
+              <p className="faq-answer">No. Each result is generated fresh using your browser's random number generator. There's no pattern, no sequence, and no way to game it. That's the whole point.</p>
+            </div>
+
+            <div className="faq-item">
+              <p className="faq-question">Why would I use this over just flipping a coin?</p>
+              <p className="faq-answer">Convenience, mostly. Your phone is probably already in your hand. Plus, coins can be biased (worn edges, flipping technique), while this is mathematically fair every time. Also, coins roll away. This doesn't.</p>
             </div>
           </div>
         </div>

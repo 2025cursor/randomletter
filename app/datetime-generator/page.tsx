@@ -305,6 +305,78 @@ export default function DateTimeGenerator() {
               </div>
             </div>
           </div>
+
+          {/* Content Section */}
+          <div className="info-section">
+            <h2 className="info-title">Why You Might Need Random Dates</h2>
+            <p className="info-text">
+              If you've ever had to populate a database with test data or create sample records for a demo, you know the pain of manually typing dates. This tool saves hours of tedious work. Just set your date range, pick how many you need, and you're done.
+            </p>
+            <p className="info-text">
+              Developers love this for seeding databases before presentations. QA teams use it to stress-test date pickers and calendar components. Even project managers find it handy when they need placeholder dates for mockups and wireframes.
+            </p>
+          </div>
+
+          <div className="info-section">
+            <h2 className="info-title">Common Use Cases</h2>
+            <ul className="info-list">
+              <li><strong>Database Testing:</strong> Fill your staging database with realistic date entries without spending hours on data entry</li>
+              <li><strong>App Development:</strong> Test how your app handles various date formats and edge cases like leap years or month boundaries</li>
+              <li><strong>Spreadsheet Work:</strong> Generate date columns for Excel or Google Sheets when building financial models or project timelines</li>
+              <li><strong>Academic Research:</strong> Create randomized date sets for statistical analysis or survey simulations</li>
+              <li><strong>Event Planning:</strong> When you need to suggest multiple possible dates for meetings or events</li>
+              <li><strong>Game Development:</strong> Generate in-game timestamps, historical dates for RPGs, or random event triggers</li>
+            </ul>
+          </div>
+
+          <div className="info-section">
+            <h2 className="info-title">Understanding Date Formats</h2>
+            <p className="info-text">
+              Different regions use different date conventions, which can cause real headaches when working internationally. Americans typically write month first (MM/DD/YYYY), while most of Europe and Asia prefer day first (DD/MM/YYYY). The ISO 8601 standard (YYYY-MM-DD) is what programmers generally prefer because it sorts correctly and avoids ambiguity.
+            </p>
+            <p className="info-text">
+              We support six formats to cover most needs. If you're building software, stick with YYYY-MM-DD for backend storage. For user-facing displays, pick whatever matches your audience's expectations.
+            </p>
+          </div>
+
+          <div className="info-section">
+            <h2 className="info-title">Tips for Better Results</h2>
+            <ul className="info-list">
+              <li>Keep your date range reasonable - a 10-year span gives more variety than a single month</li>
+              <li>Use "Date & Time" mode when testing timestamp fields in your database</li>
+              <li>The newline separator works best when pasting into spreadsheets (each date goes to its own row)</li>
+              <li>Need dates for different time zones? Generate in UTC, then convert in your application</li>
+            </ul>
+          </div>
+
+          <div className="info-section">
+            <h2 className="info-title">Frequently Asked Questions</h2>
+
+            <div className="faq-item">
+              <p className="faq-question">Are these dates truly random?</p>
+              <p className="faq-answer">Yes. Each date is generated using JavaScript's random number generator within your specified range. Every moment between your start and end date has an equal chance of being selected.</p>
+            </div>
+
+            <div className="faq-item">
+              <p className="faq-question">Can I generate dates in the past?</p>
+              <p className="faq-answer">Absolutely. Set any start and end date you want - historical dates, future dates, or any range in between. The tool works with any valid date your browser can handle.</p>
+            </div>
+
+            <div className="faq-item">
+              <p className="faq-question">Why do I get the same date multiple times?</p>
+              <p className="faq-answer">If your date range is narrow (say, just a week) and you're generating many dates, duplicates become more likely. Try widening your range or reducing the number of results.</p>
+            </div>
+
+            <div className="faq-item">
+              <p className="faq-question">How do I get dates without times?</p>
+              <p className="faq-answer">Select "Date Only" mode. This gives you clean dates without any time component attached.</p>
+            </div>
+
+            <div className="faq-item">
+              <p className="faq-question">What's the maximum number of dates I can generate?</p>
+              <p className="faq-answer">You can generate up to 50 dates at once. For larger datasets, just run the generator multiple times and combine the results.</p>
+            </div>
+          </div>
         </div>
       </div>
 

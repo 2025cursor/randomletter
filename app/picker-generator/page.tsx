@@ -210,67 +210,70 @@ export default function PickerGenerator() {
             </div>
           </div>
 
-          {/* Tool Introduction */}
+          {/* Content Section */}
           <div className="info-section">
-            <h2 className="info-title">Tool Introduction</h2>
+            <h2 className="info-title">The Hardest Part of Any Decision</h2>
             <p className="info-text">
-              The Random List Picker is perfect for making decisions when you can't choose between multiple options.
-              Simply enter your list of items (one per line), and let the tool randomly select one for you.
-              Great for choosing restaurants, picking winners, making decisions, or any situation where you need
-              an unbiased random selection.
+              We've all been there. You're standing in front of the fridge at 7 PM, everyone's hungry, and nobody can agree on what to order. Or maybe you're a teacher trying to pick a student for the next presentation without anyone accusing you of playing favorites. Sometimes the fairest thing you can do is let randomness decide.
+            </p>
+            <p className="info-text">
+              This tool takes the pressure off. Type in your options, hit the button, and accept whatever comes up. No second-guessing, no endless debates. The random picker has spoken.
             </p>
           </div>
 
-          {/* Use Cases */}
           <div className="info-section">
-            <h2 className="info-title">Use Cases</h2>
+            <h2 className="info-title">Real Ways People Use This</h2>
             <ul className="info-list">
-              <li>Choosing what to eat for dinner</li>
-              <li>Selecting winners for contests and giveaways</li>
-              <li>Making difficult decisions between options</li>
-              <li>Random name picking for presentations</li>
-              <li>Team selection and group assignments</li>
-              <li>Game elements and random events</li>
-              <li>Breaking ties in voting situations</li>
-              <li>Classroom activities and ice breakers</li>
+              <li><strong>Dinner Decisions:</strong> Paste in your list of nearby restaurants and let fate choose tonight's meal</li>
+              <li><strong>Giveaways and Contests:</strong> Drop in participant names for a fair, transparent winner selection</li>
+              <li><strong>Classroom Management:</strong> Pick students for reading, answering questions, or group assignments without bias</li>
+              <li><strong>Team Building:</strong> Randomly assign people to teams for office games or project groups</li>
+              <li><strong>Chore Assignment:</strong> Finally settle who does the dishes this week with zero arguments</li>
+              <li><strong>Gift Exchange:</strong> Run a Secret Santa draw without anyone peeking at the results</li>
+              <li><strong>Brainstorming:</strong> When you have too many ideas, let the picker narrow things down</li>
+              <li><strong>Travel Planning:</strong> Can't decide between destinations? Let randomness be your travel agent</li>
             </ul>
           </div>
 
-          {/* FAQ */}
           <div className="info-section">
-            <h2 className="info-title">Frequently Asked Questions</h2>
+            <h2 className="info-title">Pro Tips</h2>
+            <p className="info-text">
+              <strong>Weighting your options:</strong> Want pizza to have a better chance than salad? Just add "Pizza" to your list multiple times. Each entry counts as one ticket in the draw.
+            </p>
+            <p className="info-text">
+              <strong>Running a raffle:</strong> For giveaways, turn off "Allow Duplicates" to ensure each person can only win once when picking multiple winners.
+            </p>
+            <p className="info-text">
+              <strong>Quick templates:</strong> Don't feel like typing? Use our built-in templates to get started, then edit the list to match your needs.
+            </p>
+          </div>
+
+          <div className="info-section">
+            <h2 className="info-title">Questions People Ask</h2>
 
             <div className="faq-item">
-              <h3 className="faq-question">How do I add items to my list?</h3>
-              <p className="faq-answer">
-                Simply type each item on a separate line in the text area. You can also paste a list from elsewhere
-                using the "Paste" button, or use one of our pre-made templates to get started quickly.
-              </p>
+              <p className="faq-question">Is this actually random or does it favor certain items?</p>
+              <p className="faq-answer">Every item has exactly the same probability of being picked. We use JavaScript's Math.random() which gives each option equal odds. Run it a hundred times if you want - you'll see everything gets selected eventually.</p>
             </div>
 
             <div className="faq-item">
-              <h3 className="faq-question">Is the selection truly random?</h3>
-              <p className="faq-answer">
-                Yes! Our picker uses JavaScript's built-in random number generator to ensure each item has an
-                equal chance of being selected. Every pick is independent and unbiased.
-              </p>
+              <p className="faq-question">Can people see my list?</p>
+              <p className="faq-answer">No. Everything happens in your browser. Your list never leaves your device - we don't have servers storing what you type. Close the tab and it's gone.</p>
             </div>
 
             <div className="faq-item">
-              <h3 className="faq-question">Can I pick multiple items at once?</h3>
-              <p className="faq-answer">
-                Yes! You can set the "Number of Picks" to select multiple items at once. Use the "Allow Duplicates"
-                option to control whether the same item can be picked multiple times.
-              </p>
+              <p className="faq-question">What's the difference between "Allow Duplicates" on and off?</p>
+              <p className="faq-answer">With duplicates off, once an item is picked, it's removed from future picks in that round. So if you're picking 3 winners from 10 people, you'll get 3 different names. With duplicates on, the same item could theoretically be picked every time.</p>
             </div>
 
             <div className="faq-item">
-              <h3 className="faq-question">What if I have duplicate items in my list?</h3>
-              <p className="faq-answer">
-                If your list contains duplicate items, each instance is treated as a separate entry, giving
-                duplicates a higher chance of being selected. Remove duplicates if you want equal probability
-                for all unique items.
-              </p>
+              <p className="faq-question">Is there a limit to how many items I can add?</p>
+              <p className="faq-answer">No hard limit. We've tested it with thousands of items and it still works fine. Your browser might slow down with extremely large lists, but for normal use (even hundreds of items), you won't notice any issues.</p>
+            </div>
+
+            <div className="faq-item">
+              <p className="faq-question">Can I save my list for later?</p>
+              <p className="faq-answer">Not directly in the tool, but here's a workaround: select all your items, copy them, and paste into a note or document. Next time, just paste them back in.</p>
             </div>
           </div>
         </div>
