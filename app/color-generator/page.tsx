@@ -286,6 +286,59 @@ export default function ColorGenerator() {
               ))}
             </div>
           </div>
+
+          {/* SEO Content Section */}
+          <div className="info-section">
+            <h2 className="info-title">How to Use the Color Generator</h2>
+            <p className="info-text">
+              Our free color palette generator creates beautiful, harmonious color combinations instantly. Select a color scheme type (analogous, complementary, triadic, tetradic, monochromatic, or random), choose how many colors you need (1-10), pick your preferred format (HEX, RGB, or HSL), and click "Generate Colors" to create your palette. Click any color to copy its code to your clipboard.
+            </p>
+
+            <h3 className="info-title">Understanding Color Schemes</h3>
+            <ul className="info-list">
+              <li><strong>Analogous Colors:</strong> Colors adjacent to each other on the color wheel (within 30 degrees). Creates a harmonious, cohesive look perfect for nature themes and calming designs.</li>
+              <li><strong>Complementary Colors:</strong> Colors opposite each other on the color wheel (180 degrees apart). Creates high contrast and vibrant energy, ideal for call-to-action elements.</li>
+              <li><strong>Triadic Colors:</strong> Three colors equally spaced on the color wheel (120 degrees apart). Offers balanced contrast while maintaining visual harmony.</li>
+              <li><strong>Tetradic Colors:</strong> Four colors forming a rectangle on the color wheel (90 degrees apart). Provides rich variety for complex designs.</li>
+              <li><strong>Monochromatic Colors:</strong> Variations of a single hue with different saturation and lightness values. Perfect for clean, professional designs.</li>
+              <li><strong>Random Colors:</strong> Completely random color selection for unexpected inspiration and creative exploration.</li>
+            </ul>
+
+            <h3 className="info-title">Color Format Explained</h3>
+            <p className="info-text">
+              <strong>HEX (Hexadecimal):</strong> The most common format for web colors, using a # followed by six characters (e.g., #FF5733). Easy to copy and paste into CSS.
+            </p>
+            <p className="info-text">
+              <strong>RGB (Red, Green, Blue):</strong> Represents colors using three values from 0-255 for red, green, and blue channels. Useful for CSS and programming.
+            </p>
+            <p className="info-text">
+              <strong>HSL (Hue, Saturation, Lightness):</strong> A more intuitive format where Hue is the color angle (0-360), Saturation is color intensity (0-100%), and Lightness is brightness (0-100%).
+            </p>
+
+            <h3 className="info-title">Uses for Color Palettes</h3>
+            <ul className="info-list">
+              <li><strong>Web Design:</strong> Create consistent color schemes for websites and applications</li>
+              <li><strong>Graphic Design:</strong> Generate palettes for logos, posters, and marketing materials</li>
+              <li><strong>UI/UX Design:</strong> Develop accessible and visually appealing interfaces</li>
+              <li><strong>Interior Design:</strong> Plan color schemes for rooms and spaces</li>
+              <li><strong>Art Projects:</strong> Find inspiration for paintings and digital art</li>
+              <li><strong>Brand Identity:</strong> Establish cohesive brand colors</li>
+            </ul>
+
+            <h3 className="info-title">Frequently Asked Questions</h3>
+            <div className="faq-item">
+              <p className="faq-question">How do I create a color palette that works well together?</p>
+              <p className="faq-answer">Start with analogous or monochromatic schemes for safe, harmonious results. Use complementary colors sparingly for accent elements. The triadic scheme offers a good balance of variety and harmony.</p>
+            </div>
+            <div className="faq-item">
+              <p className="faq-question">Which color format should I use?</p>
+              <p className="faq-answer">Use HEX for web development and design tools. RGB is better for programming and calculations. HSL is most intuitive for manual color adjustments.</p>
+            </div>
+            <div className="faq-item">
+              <p className="faq-question">How many colors should be in a palette?</p>
+              <p className="faq-answer">Most designs work best with 3-5 colors: a primary color, secondary color, accent color, and neutral tones. Too many colors can make designs feel chaotic.</p>
+            </div>
+          </div>
         </div>
       </div>
 

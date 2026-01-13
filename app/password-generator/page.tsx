@@ -243,6 +243,59 @@ export default function PasswordGenerator() {
               </div>
             </div>
           </div>
+
+          {/* SEO Content Section */}
+          <div className="info-section">
+            <h2 className="info-title">How to Use the Password Generator</h2>
+            <p className="info-text">
+              Our free password generator creates strong, secure passwords instantly. Simply adjust the password length using the slider or input field, select your preferred character types (uppercase, lowercase, numbers, and symbols), and click "Generate" to create a new password. The strength meter provides real-time feedback on your password's security level.
+            </p>
+
+            <h3 className="info-title">Key Features</h3>
+            <ul className="info-list">
+              <li><strong>Customizable Length:</strong> Generate passwords from 4 to 128 characters long</li>
+              <li><strong>Character Type Selection:</strong> Choose any combination of uppercase letters, lowercase letters, numbers, and special symbols</li>
+              <li><strong>Exclude Ambiguous Characters:</strong> Remove confusing characters like 0/O, 1/l/I for better readability</li>
+              <li><strong>No Repeat Characters:</strong> Ensure each character appears only once for increased entropy</li>
+              <li><strong>Strength Indicator:</strong> Real-time password strength analysis shows Weak, Medium, or Strong ratings</li>
+              <li><strong>One-Click Copy:</strong> Instantly copy your generated password to clipboard</li>
+            </ul>
+
+            <h3 className="info-title">Why Use a Strong Password?</h3>
+            <p className="info-text">
+              In today's digital world, password security is more important than ever. Weak passwords are the leading cause of data breaches and account compromises. Hackers use sophisticated tools that can crack simple passwords in seconds. A strong password should be at least 12 characters long and include a mix of uppercase letters, lowercase letters, numbers, and special symbols.
+            </p>
+            <p className="info-text">
+              Our password generator uses cryptographically secure random number generation to ensure each password is truly random and unpredictable. Unlike human-created passwords, machine-generated passwords don't follow patterns that hackers can exploit.
+            </p>
+
+            <h3 className="info-title">Password Security Best Practices</h3>
+            <ul className="info-list">
+              <li><strong>Use Unique Passwords:</strong> Never reuse passwords across multiple accounts</li>
+              <li><strong>Enable Two-Factor Authentication:</strong> Add an extra layer of security whenever possible</li>
+              <li><strong>Use a Password Manager:</strong> Store your complex passwords securely</li>
+              <li><strong>Update Regularly:</strong> Change passwords periodically, especially for sensitive accounts</li>
+              <li><strong>Avoid Personal Information:</strong> Don't include names, birthdays, or common words</li>
+            </ul>
+
+            <h3 className="info-title">Frequently Asked Questions</h3>
+            <div className="faq-item">
+              <p className="faq-question">How long should my password be?</p>
+              <p className="faq-answer">We recommend at least 12-16 characters for most accounts. For highly sensitive accounts like banking or email, consider using 20+ characters.</p>
+            </div>
+            <div className="faq-item">
+              <p className="faq-question">Is this password generator safe to use?</p>
+              <p className="faq-answer">Yes! All password generation happens locally in your browser. We never store, transmit, or have access to any passwords you generate.</p>
+            </div>
+            <div className="faq-item">
+              <p className="faq-question">Should I include special characters?</p>
+              <p className="faq-answer">Yes, including special characters significantly increases password strength by expanding the character set hackers must guess from.</p>
+            </div>
+            <div className="faq-item">
+              <p className="faq-question">What makes a password "strong"?</p>
+              <p className="faq-answer">A strong password is long (12+ characters), uses multiple character types, is random (not based on dictionary words), and is unique to each account.</p>
+            </div>
+          </div>
         </div>
       </div>
 

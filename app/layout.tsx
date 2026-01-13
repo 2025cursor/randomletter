@@ -1,8 +1,13 @@
 import './globals.css'
 import type { Metadata, Viewport } from 'next'
+import { BASE_URL, SITE_CONFIG } from '@/lib/constants'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')),
+  metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     template: '%s | Random Generator Tools',
     default: 'Random Generator Tools - Free Online Random Letter, Password, Color & Number Generators',
@@ -21,6 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
+    url: BASE_URL,
     title: 'Random Generator Tools - Free Online Random Generators',
     description: 'Free online random generator tools for letters, passwords, colors, numbers and more. Professional tools for developers and designers.',
     siteName: 'Random Generator Tools',
@@ -95,7 +101,10 @@ gtag('config', 'G-4KGJCWEWH5');`
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

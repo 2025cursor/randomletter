@@ -1066,3 +1066,142 @@ body.dark-mode {
     font-size: 1rem;
   }
 }
+
+/* Footer Styles */
+.site-footer {
+  background: #1a1a2e;
+  color: #a0aec0;
+  padding: 3rem 1.5rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.footer-section h4 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-section p {
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #a0aec0;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 0.95rem;
+}
+
+.footer-section ul li a:hover {
+  color: #4169E1;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2d3748;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .site-footer {
+    padding: 2rem 1rem 1rem;
+  }
+}
+
+/* Legal Pages Styles */
+.legal-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.legal-page h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+}
+
+.dark-mode .legal-page h1 {
+  color: #fff;
+}
+
+.legal-page .last-updated {
+  color: #718096;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.legal-page h2 {
+  font-size: 1.3rem;
+  margin: 2rem 0 1rem;
+  color: #2d3748;
+}
+
+.dark-mode .legal-page h2 {
+  color: #fff;
+}
+
+.legal-page p {
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.dark-mode .legal-page p {
+  color: #a0aec0;
+}
+
+.legal-page ul {
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.dark-mode .legal-page ul {
+  color: #a0aec0;
+}
+
+.legal-page a {
+  color: #4169E1;
+  text-decoration: none;
+}
+
+.legal-page a:hover {
+  text-decoration: underline;
+}
